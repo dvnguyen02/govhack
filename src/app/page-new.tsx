@@ -55,7 +55,7 @@ const AbsenceManagementApp = () => {
           />
         );
       case 'library':
-        return <HealthLibrary healthLibrary={healthLibrary} />;
+        return <HealthLibrary />;
       case 'support':
         return <SupportServices supportServices={supportServices} />;
       case 'care-plans':
