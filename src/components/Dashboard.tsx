@@ -82,7 +82,7 @@ const Dashboard: React.FC<DashboardProps> = ({
   ];
 
   return (
-    <div className="space-y-6">
+  <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-bold text-foreground">Dashboard</h1>
         <Button onClick={() => setShowReportModal(true)} className="flex items-center space-x-2">

@@ -86,7 +86,7 @@ const AbsenceManagementApp = () => {
   };
 
   return (
-    <div className="flex h-screen bg-background relative overflow-hidden">
+  <div className="flex h-screen bg-beige-custom relative overflow-hidden">
       {/* Background glass elements for depth - Beige theme */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-br from-amber-200/10 to-orange-200/10 rounded-full blur-3xl"></div>
@@ -103,12 +103,12 @@ const AbsenceManagementApp = () => {
         currentUser={currentUser}
       />
       
-      <div className="flex-1 flex flex-col overflow-hidden relative z-10 bg-background">
+  <div className="flex-1 flex flex-col overflow-hidden relative z-10 bg-beige-custom">
         <MobileHeader setSidebarOpen={setSidebarOpen} />
 
         {/* Main content */}
-        <main className="flex-1 relative overflow-y-auto focus:outline-none bg-background">
-          <div className="py-6 bg-background">
+        <main className="flex-1 relative overflow-y-auto focus:outline-none bg-beige-custom">
+          <div className="py-6 bg-beige-custom">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
               {renderCurrentView()}
             </div>
