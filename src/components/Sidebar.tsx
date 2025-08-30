@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   Heart, 
   X, 
-  Activity, 
+  Menu,
   Calendar, 
   TrendingUp, 
   Users, 
@@ -10,7 +10,8 @@ import {
   Phone, 
   Settings, 
   User, 
-  LogOut 
+  LogOut,
+  Activity
 } from 'lucide-react';
 import { User as UserType, ViewType } from '../types';
 import { Button } from './ui/button';
@@ -61,12 +62,12 @@ const Sidebar: React.FC<SidebarProps> = ({
         <div className="flex items-center space-x-2">
           <Image 
             src="/logo/logo.png" 
-            alt="black Logo" 
+            alt="Proacta Logo" 
             width={32} 
             height={32} 
             className="object-contain"
           />
-          <span className="text-xl font-bold glass-text-gradient">black</span>
+          <span className="text-xl font-bold text-black">Proacta</span>
         </div>
         <Button 
           variant="ghost" 
@@ -85,12 +86,12 @@ const Sidebar: React.FC<SidebarProps> = ({
             return (
               <Button
                 key={item.id}
-                variant={currentView === item.id ? "default" : "ghost"}
+                variant="ghost"
                 onClick={() => setCurrentView(item.id)}
-                className={`w-full justify-start glass-button py-3 h-auto ${
+                className={`w-full justify-start py-3 h-auto border-t border-b border-transparent transition-all duration-200 ease-in-out ${
                   currentView === item.id
-                    ? 'bg-primary/20 text-primary hover:bg-primary/30 border-primary/30'
-                    : 'text-muted-foreground hover:bg-muted/20 hover:text-foreground border-border'
+                    ? 'border-t-primary border-b-primary text-primary bg-primary/5'
+                    : 'text-muted-foreground hover:border-t-primary/50 hover:border-b-primary/50 hover:text-foreground hover:bg-primary/5'
                 }`}
               >
                 <Icon className="mr-3 h-5 w-5" />

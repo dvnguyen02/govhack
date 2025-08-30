@@ -46,15 +46,15 @@
 
 :root {
   --radius: 0.625rem;
-  /* Warm Beige Professional Theme */
-  --background: 240 230 220; /* Deeper beige background */
-  --foreground: 67 56 48; /* Warm dark brown */
+  /* Updated CSS custom properties format */
+  --background: 240 230 220;
+  --foreground: 67 56 48;
   --card: 240 230 220; /* Deeper beige card */
   --card-foreground: 67 56 48; /* Warm dark brown */
   --popover: 254 252 250; /* Light warm beige */
   --popover-foreground: 67 56 48; /* Warm dark brown */
-  --primary: 154 52 18; /* Warm brown primary */
-  --primary-foreground: 254 252 250; /* Light warm beige */
+  --primary: 210 180 140; /* Light beige primary */
+  --primary-foreground: 67 56 48; /* Warm dark brown */
   --secondary: 230 220 210; /* Deeper beige secondary */
   --secondary-foreground: 120 113 108; /* Medium brown */
   --muted: 225 215 205; /* Deeper beige muted */
@@ -64,20 +64,20 @@
   --destructive: 239 68 68; /* Red-500 */
   --border: 231 220 209; /* Warm beige border */
   --input: 241 235 229; /* Light warm input */
-  --ring: 154 52 18; /* Warm brown ring */
-  --chart-1: 154 52 18; /* Warm brown */
+  --ring: 210 180 140; /* Light beige ring */
+  --chart-1: 210 180 140; /* Light beige */
   --chart-2: 16 185 129; /* Emerald-500 */
   --chart-3: 245 158 11; /* Amber-500 */
   --chart-4: 139 92 246; /* Violet-500 */
   --chart-5: 236 72 153; /* Pink-500 */
   --sidebar: 230 220 210; /* Deeper beige sidebar */
   --sidebar-foreground: 120 113 108; /* Medium brown */
-  --sidebar-primary: 154 52 18; /* Warm brown */
-  --sidebar-primary-foreground: 254 252 250; /* Light warm beige */
+  --sidebar-primary: 210 180 140; /* Light beige */
+  --sidebar-primary-foreground: 67 56 48; /* Warm dark brown */
   --sidebar-accent: 220 210 200; /* Deeper beige accent */
   --sidebar-accent-foreground: 120 113 108; /* Medium brown */
   --sidebar-border: 231 220 209; /* Warm beige border */
-  --sidebar-ring: 154 52 18; /* Warm brown ring */
+  --sidebar-ring: 210 180 140; /* Light beige ring */
 }
 
 .dark {
@@ -121,7 +121,8 @@
   }
   body {
   @apply bg-background text-foreground;
-  background-color: rgb(240, 230, 220); /* Fallback beige */
+  background-color: rgb(var(--background)); /* Using CSS custom property */
+  color: rgb(var(--foreground));
     font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
     font-weight: 400;
     line-height: 1.6;

@@ -17,12 +17,12 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ setSidebarOpen }) => {
         <div className="flex items-center space-x-2">
           <Image 
             src="/logo/logo.png" 
-            alt="black Logo" 
+            alt="Proacta Logo" 
             width={24} 
             height={24} 
             className="object-contain"
           />
-          <span className="text-lg font-bold glass-text-gradient">black</span>
+          <span className="text-lg font-bold text-black">Proacta</span>
         </div>
         <div className="w-6"></div>
       </div>
