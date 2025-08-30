@@ -15,14 +15,14 @@ const HealthLibrary: React.FC = () => {
           <Input
             type="text"
             placeholder="Search health topics..."
-            className="pl-10 w-64 glass-input border-white/35"
+            className="pl-10 w-64 glass-input border-border"
           />
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {healthLibrary.map((article, index) => (
-          <Card key={index} className="glass-card border-white/35 hover:shadow-md transition-shadow cursor-pointer">
+          <Card key={index} className="glass-card border-border hover:shadow-md transition-shadow cursor-pointer">
             <CardHeader className="pb-3">
               <div className="flex items-center justify-between mb-3">
                 <Badge variant="secondary" className="glass bg-primary/30 border-primary/50 text-primary-foreground">

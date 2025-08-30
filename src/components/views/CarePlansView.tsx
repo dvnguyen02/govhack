@@ -54,7 +54,7 @@ const CarePlansView: React.FC<CarePlansViewProps> = ({
           </Card>
         ))}
         
-        <Card className="glass border-dashed border-2 border-white/30">
+        <Card className="glass border-dashed border-2 border-border">
           <CardContent className="flex flex-col items-center justify-center text-center h-full pt-6">
             <Heart className="h-12 w-12 text-muted-foreground mb-3" />
             <CardTitle className="text-lg mb-2">No More Active Plans</CardTitle>

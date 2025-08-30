@@ -90,7 +90,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 className={`w-full justify-start glass-button ${
                   currentView === item.id
                     ? 'bg-primary/20 text-primary hover:bg-primary/30 border-primary/30'
-                    : 'text-muted-foreground hover:bg-white/20 hover:text-foreground border-white/20'
+                    : 'text-muted-foreground hover:bg-muted/20 hover:text-foreground border-border'
                 }`}
               >
                 <Icon className="mr-3 h-5 w-5" />

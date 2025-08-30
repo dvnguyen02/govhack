@@ -26,16 +26,16 @@ const EmployeesView: React.FC = () => {
           <Input
             type="text"
             placeholder="Search employees..."
-            className="pl-10 w-64 glass-input border-white/35"
+            className="pl-10 w-64 glass-input border-border"
           />
         </div>
       </div>
 
-      <Card className="glass-card border-white/35">
+      <Card className="glass-card border-border">
         <CardContent className="pt-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {employees.map((employee, index) => (
-              <Card key={index} className="glass-button border-white/25">
+              <Card key={index} className="glass-button border-border">
                 <CardHeader className="pb-2">
                   <div className="flex items-center justify-between">
                     <CardTitle className="text-sm">{employee.name}</CardTitle>

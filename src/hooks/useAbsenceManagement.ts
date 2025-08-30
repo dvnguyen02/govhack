@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Absence, User, ViewType, FormData } from '../types';
 import { sampleAbsences } from '../data';
 import { calculateDashboardStats } from '../utils';
+import { handleAbsenceWithAICarePlan } from '../services/aiCarePlanService';
 
 export const useAbsenceManagement = () => {
   const [currentView, setCurrentView] = useState<ViewType>('dashboard');
@@ -19,7 +20,7 @@ export const useAbsenceManagement = () => {
 
   const dashboardStats = calculateDashboardStats(absences);
 
-  const handleSubmitAbsence = (formData: FormData) => {
+  const handleSubmitAbsence = async (formData: FormData) => {
     const newAbsence: Absence = {
       id: absences.length + 1,
       employeeName: currentUser.name,
@@ -33,7 +34,15 @@ export const useAbsenceManagement = () => {
       daysOff: calculateDaysOff(formData.startDate, formData.endDate)
     };
 
-    setAbsences([...absences, newAbsence]);
+    // Generate AI care plan automatically when absence is reported
+    try {
+      const absenceWithAICarePlan = await handleAbsenceWithAICarePlan(newAbsence);
+      setAbsences([...absences, absenceWithAICarePlan]);
+    } catch (error) {
+      console.error('Error generating AI care plan:', error);
+      // Fall back to adding absence without AI care plan
+      setAbsences([...absences, newAbsence]);
+    }
   };
 
   const calculateDaysOff = (startDate: string, endDate: string): number => {

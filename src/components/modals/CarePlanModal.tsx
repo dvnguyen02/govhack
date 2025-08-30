@@ -1,10 +1,11 @@
 import React from 'react';
-import { CheckCircle, BookOpen } from 'lucide-react';
+import { CheckCircle, BookOpen, Bot } from 'lucide-react';
 import { Absence, CarePlan } from '../../types';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '../ui/dialog';
 import { Button } from '../ui/button';
 import { Card, CardContent } from '../ui/card';
 import { Badge } from '../ui/badge';
+import AICareplanModal from './AICareplanModal';
 
 interface CarePlanModalProps {
   showCarePlanModal: boolean;
@@ -20,6 +21,18 @@ const CarePlanModal: React.FC<CarePlanModalProps> = ({
   carePlans
 }) => {
   if (!showCarePlanModal || !selectedAbsence) return null;
+
+  // If the absence has an AI-generated care plan, show that instead
+  if (selectedAbsence.aiCarePlan) {
+    return (
+      <AICareplanModal
+        isOpen={showCarePlanModal}
+        onClose={() => setShowCarePlanModal(false)}
+        carePlan={selectedAbsence.aiCarePlan}
+        employeeName={selectedAbsence.employeeName}
+      />
+    );
+  }
 
   const carePlan = carePlans[selectedAbsence?.reason?.toLowerCase() as keyof typeof carePlans] || carePlans['flu symptoms'];
 

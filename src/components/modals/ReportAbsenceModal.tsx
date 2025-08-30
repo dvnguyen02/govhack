@@ -6,11 +6,12 @@ import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../ui/select';
 import { Textarea } from '../ui/textarea';
+import { Bot, Loader2 } from 'lucide-react';
 
 interface ReportAbsenceModalProps {
   showReportModal: boolean;
   setShowReportModal: (show: boolean) => void;
-  onSubmit?: (data: FormData) => void;
+  onSubmit?: (data: FormData) => Promise<void> | void;
 }
 
 const ReportAbsenceModal: React.FC<ReportAbsenceModalProps> = ({
@@ -18,29 +19,37 @@ const ReportAbsenceModal: React.FC<ReportAbsenceModalProps> = ({
   setShowReportModal,
   onSubmit
 }) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     reason: '',
     category: '',
     startDate: '',
     endDate: '',
-    details: '',
-    symptoms: []
+    details: ''
   });
 
   if (!showReportModal) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit?.(formData);
-    setShowReportModal(false);
-    setFormData({
-      reason: '',
-      category: '',
-      startDate: '',
-      endDate: '',
-      details: '',
-      symptoms: []
-    });
+    if (!onSubmit) return;
+    
+    setIsSubmitting(true);
+    try {
+      await onSubmit(formData);
+      setShowReportModal(false);
+      setFormData({
+        reason: '',
+        category: '',
+        startDate: '',
+        endDate: '',
+        details: ''
+      });
+    } catch (error) {
+      console.error('Error submitting absence:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -112,16 +121,37 @@ const ReportAbsenceModal: React.FC<ReportAbsenceModalProps> = ({
             />
           </div>
           
+          {/* AI Care Plan Info */}
+          <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+            <div className="flex items-start space-x-3">
+              <Bot className="h-5 w-5 text-blue-600 mt-0.5" />
+              <div>
+                <p className="text-sm text-blue-800 font-medium">AI Care Plan Generation</p>
+                <p className="text-xs text-blue-700 mt-1">
+                  A personalized recovery plan will be automatically generated using AI based on your condition and NZ health guidelines.
+                </p>
+              </div>
+            </div>
+          </div>
+          
           <div className="flex justify-end space-x-3 pt-4">
             <Button 
               type="button"
               variant="outline"
               onClick={() => setShowReportModal(false)}
+              disabled={isSubmitting}
             >
               Cancel
             </Button>
-            <Button type="submit">
-              Submit Report
+            <Button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Generating AI Care Plan...
+                </>
+              ) : (
+                'Submit Report'
+              )}
             </Button>
           </div>
         </form>

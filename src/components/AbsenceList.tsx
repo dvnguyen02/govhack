@@ -49,7 +49,7 @@ const AbsenceList: React.FC<AbsenceListProps> = ({
         <CardContent className="p-0">
           <Table>
             <TableHeader>
-              <TableRow className="border-b border-white/20">
+              <TableRow className="border-b border-border">
                 <TableHead>Employee</TableHead>
                 <TableHead>Reason</TableHead>
                 <TableHead>Dates</TableHead>
@@ -81,13 +81,20 @@ const AbsenceList: React.FC<AbsenceListProps> = ({
                   </TableCell>
                   <TableCell>
                     {absence.carePlanActive ? (
-                      <Button 
-                        variant="link"
-                        onClick={() => handleViewCarePlan(absence)}
-                        className="h-auto p-0 text-primary"
-                      >
-                        View Plan
-                      </Button>
+                      <div className="flex flex-col space-y-1">
+                        <Button 
+                          variant="link"
+                          onClick={() => handleViewCarePlan(absence)}
+                          className="h-auto p-0 text-primary text-sm"
+                        >
+                          View Plan
+                        </Button>
+                        {absence.aiCarePlan && (
+                          <Badge variant="secondary" className="text-xs w-fit bg-blue-100 text-blue-800">
+                            AI Generated
+                          </Badge>
+                        )}
+                      </div>
                     ) : (
                       <span className="text-muted-foreground text-sm">None</span>
                     )}

@@ -16,6 +16,8 @@ export interface Absence {
   details: string;
   carePlanActive: boolean;
   daysOff: number;
+  aiCarePlan?: AICarePlan;
+  carePlanGeneratedAt?: string;
 }
 
 export interface CarePlan {
@@ -49,7 +51,35 @@ export interface FormData {
   startDate: string;
   endDate: string;
   details: string;
-  symptoms: string[];
+}
+
+export interface AICarePlan {
+  title: string;
+  overview: string;
+  estimatedRecoveryTime: string;
+  dailyPlan: Array<{
+    day: number;
+    focus: string;
+    tasks: string[];
+    checkpoints: string[];
+  }>;
+  resources: Array<{
+    title: string;
+    type: 'nz_health_service' | 'acc_resource' | 'wellness_tip' | 'emergency_contact';
+    contact?: string;
+    description: string;
+  }>;
+  returnToWorkGuidance: {
+    gradualReturn: boolean;
+    accommodations: string[];
+    checkInSchedule: string[];
+  };
+  redFlags: string[];
+  followUpReminders: Array<{
+    day: number;
+    message: string;
+    action: string;
+  }>;
 }
 
 export interface DashboardStats {

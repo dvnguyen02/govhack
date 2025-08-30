@@ -21,7 +21,7 @@ const SettingsView: React.FC<SettingsViewProps> = ({ currentUser }) => {
     <div className="space-y-6">
       <h1 className="text-2xl font-bold text-foreground">Settings</h1>
       
-      <Card className="glass-card border-white/35">
+      <Card className="glass-card border-border">
         <CardHeader>
           <CardTitle>Notification Settings</CardTitle>
         </CardHeader>
@@ -39,7 +39,7 @@ const SettingsView: React.FC<SettingsViewProps> = ({ currentUser }) => {
         </CardContent>
       </Card>
 
-      <Card className="glass-card border-white/35">
+      <Card className="glass-card border-border">
         <CardHeader>
           <CardTitle>Company Information</CardTitle>
         </CardHeader>
@@ -52,7 +52,7 @@ const SettingsView: React.FC<SettingsViewProps> = ({ currentUser }) => {
                 type="text" 
                 value={currentUser.company}
                 readOnly
-                className="glass-input border-white/35"
+                className="glass-input border-border"
               />
             </div>
             <div className="space-y-2">
@@ -62,7 +62,7 @@ const SettingsView: React.FC<SettingsViewProps> = ({ currentUser }) => {
                 type="email" 
                 value={currentUser.email}
                 readOnly
-                className="glass-input border-white/35"
+                className="glass-input border-border"
               />
             </div>
           </div>

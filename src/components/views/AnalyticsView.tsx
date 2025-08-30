@@ -218,7 +218,7 @@ const AnalyticsView: React.FC = () => {
       </Card>
 
       {/* Monthly Trends Chart */}
-      <Card className="glass-card border-white/35">
+      <Card className="glass-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
             <TrendingUp className="h-5 w-5" />
@@ -306,7 +306,7 @@ const AnalyticsView: React.FC = () => {
       </Card>
 
       {/* Sick Leave Predictions Chart */}
-      <Card className="glass-card border-white/35">
+      <Card className="glass-card border-border">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center space-x-2">
