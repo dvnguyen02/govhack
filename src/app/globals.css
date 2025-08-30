@@ -44,10 +44,11 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+
 :root {
   --radius: 0.625rem;
   /* Updated CSS custom properties format */
-  --background: 240 230 220;
+  --background: 245 235 220; /* Changed to a warm beige color */
   --foreground: 67 56 48;
   --card: 240 230 220; /* Deeper beige card */
   --card-foreground: 67 56 48; /* Warm dark brown */
@@ -255,4 +256,8 @@
 
 .dark .glass-button:hover {
   background: rgba(30, 41, 59, 0.7);
+}
+
+.bg-beige-custom {
+  background-color: rgb(245, 235, 220);
 }

@@ -58,16 +58,19 @@ const Sidebar: React.FC<SidebarProps> = ({
 
   return (
     <div className={`fixed inset-y-0 left-0 z-50 w-64 glass-sidebar transform ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-200 ease-in-out lg:translate-x-0 lg:static lg:inset-0`}>
-      <div className="flex items-center justify-between h-16 px-4 glass-header">
-        <div className="flex items-center space-x-2">
+      <div className="flex items-center justify-between h-20 px-6 glass-header">
+        <div className="flex items-center space-x-3">
           <Image 
             src="/logo/logo.png" 
             alt="Proacta Logo" 
-            width={32} 
-            height={32} 
-            className="object-contain"
+            width={80} 
+            height={80} 
+            className="h-20 w-auto object-contain"
           />
-          <span className="text-xl font-bold text-black">Proacta</span>
+          <span className="text-3xl font-bold">
+            <span style={{ color: '#0052B4' }}>Pro</span>
+            <span style={{ color: '#F38374' }}>acta</span>
+          </span>
         </div>
         <Button 
           variant="ghost" 
