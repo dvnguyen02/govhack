@@ -207,10 +207,7 @@ const Dashboard: React.FC<DashboardProps> = ({
       <Card className="glass-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
-            <TrendingUp className="h-5 w-" />
-            <Badge variant="outline" className="text-lg">
-              Last 3 weeks + Predicted Next 2 weeks
-            </Badge>
+            <span className="text-lg font-medium">Last 3 weeks + Predicted Next 2 weeks</span>
           </CardTitle>
         </CardHeader>
         <CardContent>

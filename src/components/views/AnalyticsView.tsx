@@ -15,8 +15,8 @@ import {
 } from 'recharts';
 
 const AnalyticsView: React.FC = () => {
-  const [viewType, setViewType] = useState<'weekly' | 'monthly'>('monthly');
-  const [weeksAhead, setWeeksAhead] = useState<number>(1);
+  const [viewType, setViewType] = useState<'weekly' | 'monthly'>('weekly');
+  const [weeksAhead, setWeeksAhead] = useState<number>(4);
 
   // HealthLine ILI call rates data (rate per 100,000 population) - based on 2024 national data
   const monthlyILIRates = [
@@ -221,7 +221,6 @@ const AnalyticsView: React.FC = () => {
       <Card className="glass-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
-            <TrendingUp className="h-5 w-5" />
             <span>Monthly ILI Call Rates - National (2024)</span>
           </CardTitle>
         </CardHeader>
@@ -310,8 +309,7 @@ const AnalyticsView: React.FC = () => {
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle className="flex items-center space-x-2">
-              <BarChart3 className="h-5 w-5" />
-              <span>Sick Leave Analytics & ML Predictions</span>
+              <span>Employee Sick Leave Trends & Forecast</span>
             </CardTitle>
             <div className="flex items-center space-x-2">
               <Button
