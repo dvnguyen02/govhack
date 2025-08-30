@@ -154,8 +154,11 @@ const Dashboard: React.FC<DashboardProps> = ({
           let statusLabel = '';
           let showIndicator = stat.title !== 'Total Absences';
           let IndicatorIcon = ArrowDown;
-          
-          if (threshold) {
+
+          if (stat.title === 'Active Absences' && stat.value <= 40) {
+            valueColor = 'text-green-500';
+            IndicatorIcon = ArrowDown;
+          } else if (threshold) {
             if (stat.value >= threshold.critical) {
               valueColor = 'text-destructive';
               statusLabel = stat.title === 'Avg Days Off' ? 'Critical' : '';
@@ -175,15 +178,7 @@ const Dashboard: React.FC<DashboardProps> = ({
           return (
             <Card key={index} className="glass-card border-0 border-l-4 border-l-primary">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle
-                  className={
-                    index === 0 ? 'text-sm font-medium text-[#0052B4]' :
-                    index === 1 ? 'text-sm font-medium text-[#F38374]' :
-                    index === 2 ? 'text-sm font-medium text-[#0052B4]' :
-                    index === 3 ? 'text-sm font-medium text-[#F38374]' :
-                    'text-sm font-medium'
-                  }
-                >
+                <CardTitle className="text-sm font-medium text-black">
                   {stat.title}
                 </CardTitle>
                 <div className="p-2 rounded-full bg-primary/20 glass border-primary/30">
