@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -45,38 +46,38 @@
 
 :root {
   --radius: 0.625rem;
-  /* Modern Glass UI Theme - Light */
-  --background: 248 250 252; /* Cool gray-50 */
-  --foreground: 15 23 42; /* Slate-900 */
+  /* Elegant Professional Theme */
+  --background: 251 252 254; /* Very light blue-gray */
+  --foreground: 30 41 59; /* Slate-800 - More elegant dark gray */
   --card: 255 255 255; /* Pure white */
-  --card-foreground: 15 23 42; /* Slate-900 */
+  --card-foreground: 30 41 59; /* Slate-800 */
   --popover: 255 255 255; /* Pure white */
-  --popover-foreground: 15 23 42; /* Slate-900 */
-  --primary: 59 130 246; /* Blue-500 - Modern tech blue */
+  --popover-foreground: 30 41 59; /* Slate-800 */
+  --primary: 79 70 229; /* Indigo-600 - More sophisticated */
   --primary-foreground: 255 255 255; /* White */
-  --secondary: 241 245 249; /* Slate-100 */
-  --secondary-foreground: 51 65 85; /* Slate-700 */
+  --secondary: 248 250 252; /* Slate-50 */
+  --secondary-foreground: 71 85 105; /* Slate-600 - Softer gray */
   --muted: 248 250 252; /* Slate-50 */
-  --muted-foreground: 100 116 139; /* Slate-500 */
-  --accent: 14 165 233; /* Sky-500 - Bright accent */
+  --muted-foreground: 107 114 128; /* Gray-500 - More refined */
+  --accent: 99 102 241; /* Indigo-500 - Elegant accent */
   --accent-foreground: 255 255 255; /* White */
   --destructive: 239 68 68; /* Red-500 */
   --border: 226 232 240; /* Slate-200 */
   --input: 241 245 249; /* Slate-100 */
-  --ring: 59 130 246; /* Blue-500 */
-  --chart-1: 59 130 246; /* Blue-500 */
+  --ring: 79 70 229; /* Indigo-600 */
+  --chart-1: 79 70 229; /* Indigo-600 */
   --chart-2: 16 185 129; /* Emerald-500 */
   --chart-3: 245 158 11; /* Amber-500 */
   --chart-4: 139 92 246; /* Violet-500 */
   --chart-5: 236 72 153; /* Pink-500 */
   --sidebar: 248 250 252; /* Slate-50 */
-  --sidebar-foreground: 51 65 85; /* Slate-700 */
-  --sidebar-primary: 59 130 246; /* Blue-500 */
+  --sidebar-foreground: 71 85 105; /* Slate-600 */
+  --sidebar-primary: 79 70 229; /* Indigo-600 */
   --sidebar-primary-foreground: 255 255 255; /* White */
   --sidebar-accent: 241 245 249; /* Slate-100 */
-  --sidebar-accent-foreground: 51 65 85; /* Slate-700 */
+  --sidebar-accent-foreground: 71 85 105; /* Slate-600 */
   --sidebar-border: 226 232 240; /* Slate-200 */
-  --sidebar-ring: 59 130 246; /* Blue-500 */
+  --sidebar-ring: 79 70 229; /* Indigo-600 */
 }
 
 .dark {
@@ -120,23 +121,34 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    letter-spacing: -0.01em;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: rgb(30 41 59); /* Slate-800 for headings */
   }
 }
 
 /* Modern Glass UI Effects */
 .glass-glow {
-  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.25));
+  filter: drop-shadow(0 0 12px rgba(79, 70, 229, 0.25));
 }
 
-.glass-text-gradient {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+  .glass-text-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 
 .glass-accent-gradient {
-  background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #6366f1 100%);
+  background: linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #3730a3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

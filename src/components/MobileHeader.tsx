@@ -1,6 +1,7 @@
 import React from 'react';
 import { Menu, Heart } from 'lucide-react';
 import { Button } from './ui/button';
+import Image from 'next/image';
 
 interface MobileHeaderProps {
   setSidebarOpen: (open: boolean) => void;
@@ -14,7 +15,13 @@ const MobileHeader: React.FC<MobileHeaderProps> = ({ setSidebarOpen }) => {
           <Menu className="h-6 w-6" />
         </Button>
         <div className="flex items-center space-x-2">
-          <Heart className="h-6 w-6 text-primary glass-glow" />
+          <Image 
+            src="/logo/logo.png" 
+            alt="SickLeave Signal Logo" 
+            width={24} 
+            height={24} 
+            className="object-contain"
+          />
           <span className="text-lg font-bold glass-text-gradient">SickLeave Signal</span>
         </div>
         <div className="w-6"></div>

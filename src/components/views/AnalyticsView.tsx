@@ -143,25 +143,7 @@ const AnalyticsView: React.FC = () => {
                   dataKey="rate"
                   stroke="#3B82F6"
                   strokeWidth={3}
-                  dot={(props) => {
-                    const { cx, cy, payload } = props;
-                    const rate = payload.rate;
-                    let fill = '#3B82F6';
-                    if (rate > 30) fill = '#DC2626';
-                    else if (rate > 25) fill = '#F59E0B';
-
-                    return (
-                      <circle
-                        cx={cx}
-                        cy={cy}
-                        r={5}
-                        fill={fill}
-                        stroke="white"
-                        strokeWidth={2}
-                        className="drop-shadow-sm hover:r-6 transition-all cursor-pointer"
-                      />
-                    );
-                  }}
+                  dot={{ fill: '#3B82F6', strokeWidth: 2, r: 5 }}
                   activeDot={{
                     r: 6,
                     stroke: '#3B82F6',
