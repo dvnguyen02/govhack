@@ -8,8 +8,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: "rgb(240,230,220)",
+        background: "rgb(245,235,220)", // Changed to a lighter beige
         foreground: "rgb(67,56,48)",
+        // You can also add more beige variations if needed
+        'beige-light': "rgb(250,240,230)",
+        'beige-medium': "rgb(245,235,220)",
+        'beige-dark': "rgb(240,230,220)",
       },
     },
   },

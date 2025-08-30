@@ -34,28 +34,28 @@ const Dashboard: React.FC<DashboardProps> = ({
       title: 'Total Absences',
       value: dashboardStats.totalAbsences,
       icon: Calendar,
-      color: 'text-primary',
+      color: 'text-[#0052B4]',
       variant: 'default' as const
     },
     {
       title: 'Active Absences',
       value: dashboardStats.activeAbsences,
       icon: Clock,
-      color: 'text-primary',
+      color: 'text-[#F38374]',
       variant: 'secondary' as const
     },
     {
       title: 'Avg Days Off',
       value: dashboardStats.avgDaysOff,
       icon: TrendingUp,
-      color: 'text-primary',
+      color: 'text-[#0052B4]',
       variant: 'outline' as const
     },
     {
       title: 'Active Care Plans',
       value: dashboardStats.carePlansActive,
       icon: Heart,
-      color: 'text-destructive',
+      color: 'text-[#F38374]',
       variant: 'default' as const
     }
   ];
@@ -91,50 +91,48 @@ const Dashboard: React.FC<DashboardProps> = ({
         </Button>
       </div>
 
-      {/* AI Insights Card */}
+      {/* AI Insights Card - now styled like Recent Absences */}
       <Card className="glass-card border-0 border-l-4 border-l-primary">
         <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-          <CardTitle className="text-sm font-medium flex items-center space-x-2">
-            <Bot className="h-4 w-4" />
-            <span>AI Insights & Predictions</span>
-          </CardTitle>
+            <CardTitle className="text-sm font-medium">
+              <span className="text-lg font-medium">AI Insights & Predictions</span>
+            </CardTitle>
           <div className="p-2 rounded-full bg-primary/20 glass border-primary/30">
             <Bot className="h-4 w-4 text-primary" />
           </div>
         </CardHeader>
-        <CardContent>
-          <div className="grid gap-3">
-            <div className="p-3 bg-muted/50 rounded-lg border">
-              <div className="flex items-start space-x-3">
-                <TrendingUp className="h-4 w-4 text-primary mt-0.5" />
-                <div>
-                  <p className="text-sm text-foreground font-medium">Flu Season Prediction</p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    🔮 23% increase in flu-related absences predicted for September. Consider flu vaccination reminders.
-                  </p>
-                </div>
+        <CardContent className="space-y-3">
+          {/* Each insight row, styled exactly like Recent Absences (no border, bg-muted/50, rounded-lg, flex row) */}
+          <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+            <div className="flex items-center space-x-3">
+              <TrendingUp className="h-4 w-4 text-primary mt-0.5" />
+              <div>
+                <p className="text-sm font-medium text-foreground">Flu Season Prediction</p>
+                <p className="text-sm text-muted-foreground">
+                  🔮 23% increase in flu-related absences predicted for September. Consider flu vaccination reminders.
+                </p>
               </div>
             </div>
-            <div className="p-3 bg-muted/50 rounded-lg border">
-              <div className="flex items-start space-x-3">
-                <AlertTriangle className="h-4 w-4 text-amber-600 mt-0.5" />
-                <div>
-                  <p className="text-sm text-foreground font-medium">Team Wellness Alert</p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    ⚠️ Marketing team showing elevated stress indicators. Recommend wellness check-in.
-                  </p>
-                </div>
+          </div>
+          <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+            <div className="flex items-center space-x-3">
+              <AlertTriangle className="h-4 w-4 text-amber-600 mt-0.5" />
+              <div>
+                <p className="text-sm font-medium text-foreground">Team Wellness Alert</p>
+                <p className="text-sm text-muted-foreground">
+                  ⚠️ Marketing team showing elevated stress indicators. Recommend wellness check-in.
+                </p>
               </div>
             </div>
-            <div className="p-3 bg-muted/50 rounded-lg border">
-              <div className="flex items-start space-x-3">
-                <Lightbulb className="h-4 w-4 text-green-600 mt-0.5" />
-                <div>
-                  <p className="text-sm text-foreground font-medium">Improvement Opportunity</p>
-                  <p className="text-xs text-muted-foreground mt-1">
-                    💡 Ergonomic improvements could reduce back injury absences by 30%. Schedule assessment.
-                  </p>
-                </div>
+          </div>
+          <div className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+            <div className="flex items-center space-x-3">
+              <Lightbulb className="h-4 w-4 text-green-600 mt-0.5" />
+              <div>
+                <p className="text-sm font-medium text-foreground">Improvement Opportunity</p>
+                <p className="text-sm text-muted-foreground">
+                  💡 Ergonomic improvements could reduce back injury absences by 30%. Schedule assessment.
+                </p>
               </div>
             </div>
           </div>
@@ -163,7 +161,7 @@ const Dashboard: React.FC<DashboardProps> = ({
               statusLabel = stat.title === 'Avg Days Off' ? 'Critical' : '';
               IndicatorIcon = ArrowUp;
             } else if (stat.value >= threshold.warning) {
-              valueColor = 'text-orange-500';
+              valueColor = 'text-[#F38374]';
               statusLabel = stat.title === 'Avg Days Off' ? 'Warning' : '';
               IndicatorIcon = ArrowUp;
             } else {
@@ -177,9 +175,19 @@ const Dashboard: React.FC<DashboardProps> = ({
           return (
             <Card key={index} className="glass-card border-0 border-l-4 border-l-primary">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">{stat.title}</CardTitle>
+                <CardTitle
+                  className={
+                    index === 0 ? 'text-sm font-medium text-[#0052B4]' :
+                    index === 1 ? 'text-sm font-medium text-[#F38374]' :
+                    index === 2 ? 'text-sm font-medium text-[#0052B4]' :
+                    index === 3 ? 'text-sm font-medium text-[#F38374]' :
+                    'text-sm font-medium'
+                  }
+                >
+                  {stat.title}
+                </CardTitle>
                 <div className="p-2 rounded-full bg-primary/20 glass border-primary/30">
-                  <Icon className={`h-4 w-4 ${stat.color}`} />
+                  <Icon className="h-4 w-4 text-black" />
                 </div>
               </CardHeader>
               <CardContent>
@@ -204,10 +212,9 @@ const Dashboard: React.FC<DashboardProps> = ({
       <Card className="glass-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2">
-            <TrendingUp className="h-5 w-5" />
-            <span>ML Absence Predictions (5-Week View)</span>
-            <Badge variant="outline" className="text-xs">
-              Last 3 weeks + Next 2 weeks
+            <TrendingUp className="h-5 w-" />
+            <Badge variant="outline" className="text-lg">
+              Last 3 weeks + Predicted Next 2 weeks
             </Badge>
           </CardTitle>
         </CardHeader>
@@ -268,7 +275,7 @@ const Dashboard: React.FC<DashboardProps> = ({
                             <>
                               <p className="text-sm">
                                 <span className="font-medium">Predicted: </span>
-                                <span className="text-orange-500">{predicted} absences</span>
+                                <span style={{ color: '#F38374' }}>{predicted} absences</span>
                               </p>
                               <p className="text-xs text-muted-foreground">ML Algorithm Forecast</p>
                             </>
@@ -276,7 +283,7 @@ const Dashboard: React.FC<DashboardProps> = ({
                             <>
                               <p className="text-sm">
                                 <span className="font-medium">Actual: </span>
-                                <span className="text-blue-600">{actual} absences</span>
+                                <span style={{ color: '#0052B4' }}>{actual} absences</span>
                               </p>
                               <p className="text-xs text-muted-foreground">
                                 {type === 'current' ? 'Current Week' : 'Historical Data'}
@@ -297,32 +304,32 @@ const Dashboard: React.FC<DashboardProps> = ({
                 <Line
                   type="linear"
                   dataKey="actual"
-                  stroke="#3B82F6"
+                  stroke="#0052B4"
                   strokeWidth={3}
-                  dot={{ fill: '#3B82F6', strokeWidth: 2, r: 4 }}
+                  dot={{ fill: '#0052B4', strokeWidth: 2, r: 4 }}
                   name="Actual Sick Leave"
                   connectNulls={true}
                   activeDot={{
                     r: 6,
-                    stroke: '#3B82F6',
+                    stroke: '#0052B4',
                     strokeWidth: 2,
-                    fill: '#3B82F6'
+                    fill: '#0052B4'
                   }}
                 />
                 <Line
                   type="linear"
                   dataKey="predicted"
-                  stroke="#F59E0B"
+                  stroke="#F38374"
                   strokeWidth={2}
                   strokeDasharray="8 4"
-                  dot={{ fill: '#F59E0B', strokeWidth: 2, r: 4 }}
+                  dot={{ fill: '#F38374', strokeWidth: 2, r: 4 }}
                   name="ML Prediction"
                   connectNulls={true}
                   activeDot={{
                     r: 5,
-                    stroke: '#F59E0B',
+                    stroke: '#F38374',
                     strokeWidth: 2,
-                    fill: '#F59E0B'
+                    fill: '#F38374'
                   }}
                 />
               </LineChart>
@@ -332,11 +339,11 @@ const Dashboard: React.FC<DashboardProps> = ({
           <div className="text-center space-y-3 mt-4">
             <div className="flex justify-center space-x-6 text-xs">
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#0052B4' }}></div>
                 <span className="text-muted-foreground">Historical/Current Data</span>
               </div>
               <div className="flex items-center space-x-2">
-                <div className="w-4 h-1 bg-orange-500 border-dashed border border-orange-300"></div>
+                <div className="w-4 h-1 border-dashed border rounded" style={{ backgroundColor: '#F38374', borderColor: '#F38374' }}></div>
                 <span className="text-muted-foreground">ML Prediction</span>
               </div>
               <div className="flex items-center space-x-2">
@@ -344,7 +351,7 @@ const Dashboard: React.FC<DashboardProps> = ({
                   variant="outline"
                   size="sm"
                   onClick={() => setCurrentView('reports')}
-                  className="glass-button border-orange-500/30 text-orange-600 hover:bg-orange-500/10 text-xs px-3 py-1"
+                  className="glass-button border-[#F38374]/30 text-[#F38374] hover:bg-[#F38374]/10 text-xs px-3 py-1"
                 >
                   View Full Analytics
                 </Button>

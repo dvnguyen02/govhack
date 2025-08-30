@@ -129,14 +129,14 @@ const AnalyticsView: React.FC = () => {
       const data = payload[0].payload;
       const rate = data.rate;
       let level = 'Baseline';
-      let levelColor = '#3B82F6';
+  let levelColor = '#0052B4';
 
       if (rate > 30) {
         level = 'Peak';
         levelColor = '#DC2626';
       } else if (rate > 25) {
         level = 'Elevated';
-        levelColor = '#F59E0B';
+  levelColor = '#F38374';
       }
 
       return (
@@ -170,7 +170,7 @@ const AnalyticsView: React.FC = () => {
             <>
               <p className="text-sm">
                 <span className="font-medium">Predicted: </span>
-                <span className="text-orange-500">{predicted} absences</span>
+                <span style={{ color: '#F38374' }}>{predicted} absences</span>
               </p>
               <p className="text-xs text-muted-foreground">ML Algorithm Forecast</p>
             </>
@@ -178,7 +178,7 @@ const AnalyticsView: React.FC = () => {
             <>
               <p className="text-sm">
                 <span className="font-medium">Actual: </span>
-                <span className="text-blue-600">{actual} absences</span>
+                <span style={{ color: '#0052B4' }}>{actual} absences</span>
               </p>
               <p className="text-xs text-muted-foreground">
                 {type === 'current' ? 'Current Period' : 'Historical Data'}
@@ -207,8 +207,8 @@ const AnalyticsView: React.FC = () => {
           <div className="flex items-start space-x-3">
             <AlertTriangle className="h-5 w-5 text-yellow-500 mt-0.5 flex-shrink-0" />
             <div className="space-y-1">
-              <p className="text-sm font-medium text-yellow-200">Surveillance Data Notice</p>
-              <p className="text-xs text-yellow-200/80">
+              <p className="text-sm font-medium text-black">Surveillance Data Notice</p>
+              <p className="text-xs text-black">
                 This data represents simulated HealthLine ILI call rates based on national surveillance patterns.
                 Real-time data is used for public health monitoring and seasonal illness tracking across New Zealand.
               </p>
@@ -289,11 +289,11 @@ const AnalyticsView: React.FC = () => {
             </p>
             <div className="flex justify-center space-x-6 text-xs">
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#0052B4' }}></div>
                 <span className="text-muted-foreground">Baseline (&lt;20)</span>
               </div>
               <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
+                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#F38374' }}></div>
                 <span className="text-muted-foreground">Elevated (20-30)</span>
               </div>
               <div className="flex items-center space-x-2">
@@ -360,8 +360,8 @@ const AnalyticsView: React.FC = () => {
             <div className="flex items-start space-x-3">
               <TrendingUp className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
               <div className="space-y-1">
-                <p className="text-xs font-medium text-blue-200">ML Prediction Model</p>
-                <p className="text-xs text-blue-200/80">
+                <p className="text-xs font-medium text-black">ML Prediction Model</p>
+                <p className="text-xs text-black">
                   Predictions generated using ensemble learning algorithms analyzing seasonal patterns, 
                   historical trends, and external factors for accurate absence forecasting.
                 </p>
@@ -416,32 +416,32 @@ const AnalyticsView: React.FC = () => {
                 <Line
                   type="linear"
                   dataKey="actual"
-                  stroke="#3B82F6"
+                  stroke="#0052B4"
                   strokeWidth={3}
-                  dot={{ fill: '#3B82F6', strokeWidth: 2, r: 4 }}
+                  dot={{ fill: '#0052B4', strokeWidth: 2, r: 4 }}
                   name="Actual Sick Leave"
                   connectNulls={true}
                   activeDot={{
                     r: 6,
-                    stroke: '#3B82F6',
+                    stroke: '#0052B4',
                     strokeWidth: 2,
-                    fill: '#3B82F6'
+                    fill: '#0052B4'
                   }}
                 />
                 <Line
                   type="linear"
                   dataKey="predicted"
-                  stroke="#F59E0B"
+                  stroke="#F38374"
                   strokeWidth={2}
                   strokeDasharray="8 4"
-                  dot={{ fill: '#F59E0B', strokeWidth: 2, r: 4 }}
+                  dot={{ fill: '#F38374', strokeWidth: 2, r: 4 }}
                   name="ML Prediction"
                   connectNulls={true}
                   activeDot={{
                     r: 5,
-                    stroke: '#F59E0B',
+                    stroke: '#F38374',
                     strokeWidth: 2,
-                    fill: '#F59E0B'
+                    fill: '#F38374'
                   }}
                 />
               </LineChart>
@@ -459,7 +459,7 @@ const AnalyticsView: React.FC = () => {
                 <span className="text-muted-foreground">Historical/Current Data</span>
               </div>
               <div className="flex items-center space-x-2">
-                <div className="w-4 h-1 bg-orange-500 border-dashed border border-orange-300"></div>
+                <div className="w-4 h-1 border-dashed border rounded" style={{ backgroundColor: '#F38374', borderColor: '#F38374' }}></div>
                 <span className="text-muted-foreground">ML Prediction</span>
               </div>
               <div className="flex items-center space-x-2">
