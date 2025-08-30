@@ -356,18 +356,20 @@ const AnalyticsView: React.FC = () => {
           )}
         </CardHeader>
         <CardContent>
-          <div className="mb-4 p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
-            <div className="flex items-start space-x-3">
-              <TrendingUp className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
-              <div className="space-y-1">
-                <p className="text-xs font-medium text-blue-200">ML Prediction Model</p>
-                <p className="text-xs text-blue-200/80">
-                  Predictions generated using ensemble learning algorithms analyzing seasonal patterns, 
-                  historical trends, and external factors for accurate absence forecasting.
-                </p>
+          <Card className="glass-card border-border mb-4">
+            <CardContent className="p-4">
+              <div className="flex items-start space-x-3">
+                <TrendingUp className="h-4 w-4 text-blue-400 mt-0.5 flex-shrink-0" />
+                <div className="space-y-1">
+                  <p className="text-xs font-medium text-blue-200">ML Prediction Model</p>
+                  <p className="text-xs text-blue-200/80">
+                    Predictions generated using ensemble learning algorithms analyzing seasonal patterns, 
+                    historical trends, and external factors for accurate absence forecasting.
+                  </p>
+                </div>
               </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
           
           <div className="h-96">
             <ResponsiveContainer width="100%" height="100%">

@@ -10,7 +10,7 @@ export const useAbsenceManagement = () => {
     name: 'Sarah Johnson', 
     role: 'manager',
     company: 'Wellington Hospital',
-    email: 'sarah.johnson@sickleave-signal.com'
+    email: 'sarah.johnson@proacta.com'
   });
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [absences, setAbsences] = useState<Absence[]>(sampleAbsences);

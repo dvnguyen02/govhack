@@ -87,7 +87,7 @@ const Sidebar: React.FC<SidebarProps> = ({
                 key={item.id}
                 variant={currentView === item.id ? "default" : "ghost"}
                 onClick={() => setCurrentView(item.id)}
-                className={`w-full justify-start glass-button ${
+                className={`w-full justify-start glass-button py-3 h-auto ${
                   currentView === item.id
                     ? 'bg-primary/20 text-primary hover:bg-primary/30 border-primary/30'
                     : 'text-muted-foreground hover:bg-muted/20 hover:text-foreground border-border'
