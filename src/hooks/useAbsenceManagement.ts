@@ -9,7 +9,7 @@ export const useAbsenceManagement = () => {
   const [currentUser, setCurrentUser] = useState<User>({ 
     name: 'Sarah Johnson', 
     role: 'manager',
-    company: 'SickLeave Signal',
+    company: 'Wellington Hospital',
     email: 'sarah.johnson@sickleave-signal.com'
   });
   const [sidebarOpen, setSidebarOpen] = useState(false);
