@@ -1,4 +1,4 @@
-# CareTrack - Absence Management System
+# Proacta - Absence Management System
 
 A modern, component-based React application for managing employee absences and care plans.
 
