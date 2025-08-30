@@ -86,15 +86,7 @@ const AbsenceManagementApp = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 relative overflow-hidden">
-      {/* Background glass elements for depth */}
-      <div className="absolute inset-0">
-        <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-br from-blue-300/20 to-indigo-300/20 rounded-full blur-3xl"></div>
-        <div className="absolute top-40 right-20 w-80 h-80 bg-gradient-to-br from-sky-300/20 to-blue-300/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-40 w-96 h-96 bg-gradient-to-br from-indigo-300/20 to-purple-300/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-10 right-10 w-72 h-72 bg-gradient-to-br from-blue-300/20 to-cyan-300/20 rounded-full blur-3xl"></div>
-      </div>
-      
+    <div className="flex h-screen bg-gray-100">
       <Sidebar
         sidebarOpen={sidebarOpen}
         setSidebarOpen={setSidebarOpen}
@@ -103,7 +95,7 @@ const AbsenceManagementApp = () => {
         currentUser={currentUser}
       />
       
-      <div className="flex-1 flex flex-col overflow-hidden relative z-10">
+      <div className="flex-1 flex flex-col overflow-hidden">
         <MobileHeader setSidebarOpen={setSidebarOpen} />
 
         {/* Main content */}

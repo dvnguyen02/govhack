@@ -1,26 +1,244 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+  /* Modern Glass UI Theme - Light */
+  --background: 248 250 252; /* Cool gray-50 */
+  --foreground: 15 23 42; /* Slate-900 */
+  --card: 255 255 255; /* Pure white */
+  --card-foreground: 15 23 42; /* Slate-900 */
+  --popover: 255 255 255; /* Pure white */
+  --popover-foreground: 15 23 42; /* Slate-900 */
+  --primary: 59 130 246; /* Blue-500 - Modern tech blue */
+  --primary-foreground: 255 255 255; /* White */
+  --secondary: 241 245 249; /* Slate-100 */
+  --secondary-foreground: 51 65 85; /* Slate-700 */
+  --muted: 248 250 252; /* Slate-50 */
+  --muted-foreground: 100 116 139; /* Slate-500 */
+  --accent: 14 165 233; /* Sky-500 - Bright accent */
+  --accent-foreground: 255 255 255; /* White */
+  --destructive: 239 68 68; /* Red-500 */
+  --border: 226 232 240; /* Slate-200 */
+  --input: 241 245 249; /* Slate-100 */
+  --ring: 59 130 246; /* Blue-500 */
+  --chart-1: 59 130 246; /* Blue-500 */
+  --chart-2: 16 185 129; /* Emerald-500 */
+  --chart-3: 245 158 11; /* Amber-500 */
+  --chart-4: 139 92 246; /* Violet-500 */
+  --chart-5: 236 72 153; /* Pink-500 */
+  --sidebar: 248 250 252; /* Slate-50 */
+  --sidebar-foreground: 51 65 85; /* Slate-700 */
+  --sidebar-primary: 59 130 246; /* Blue-500 */
+  --sidebar-primary-foreground: 255 255 255; /* White */
+  --sidebar-accent: 241 245 249; /* Slate-100 */
+  --sidebar-accent-foreground: 51 65 85; /* Slate-700 */
+  --sidebar-border: 226 232 240; /* Slate-200 */
+  --sidebar-ring: 59 130 246; /* Blue-500 */
+}
+
+.dark {
+  /* Modern Glass UI Theme - Dark */
+  --background: 2 6 23; /* Dark blue-gray */
+  --foreground: 248 250 252; /* Light gray */
+  --card: 15 23 42; /* Dark slate */
+  --card-foreground: 248 250 252; /* Light gray */
+  --popover: 15 23 42; /* Dark slate */
+  --popover-foreground: 248 250 252; /* Light gray */
+  --primary: 96 165 250; /* Blue-400 */
+  --primary-foreground: 2 6 23; /* Dark background */
+  --secondary: 30 41 59; /* Slate-800 */
+  --secondary-foreground: 203 213 225; /* Slate-300 */
+  --muted: 30 41 59; /* Slate-800 */
+  --muted-foreground: 148 163 184; /* Slate-400 */
+  --accent: 56 189 248; /* Sky-400 */
+  --accent-foreground: 2 6 23; /* Dark background */
+  --destructive: 248 113 113; /* Red-400 */
+  --border: 30 41 59; /* Slate-800 */
+  --input: 30 41 59; /* Slate-800 */
+  --ring: 96 165 250; /* Blue-400 */
+  --chart-1: 96 165 250; /* Blue-400 */
+  --chart-2: 52 211 153; /* Emerald-400 */
+  --chart-3: 251 191 36; /* Amber-400 */
+  --chart-4: 167 139 250; /* Violet-400 */
+  --chart-5: 244 114 182; /* Pink-400 */
+  --sidebar: 2 6 23; /* Dark background */
+  --sidebar-foreground: 203 213 225; /* Slate-300 */
+  --sidebar-primary: 96 165 250; /* Blue-400 */
+  --sidebar-primary-foreground: 2 6 23; /* Dark background */
+  --sidebar-accent: 30 41 59; /* Slate-800 */
+  --sidebar-accent-foreground: 203 213 225; /* Slate-300 */
+  --sidebar-border: 30 41 59; /* Slate-800 */
+  --sidebar-ring: 96 165 250; /* Blue-400 */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Modern Glass UI Effects */
+.glass-glow {
+  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.25));
+}
+
+.glass-text-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 50%, #1e40af 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-accent-gradient {
+  background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass Morphism Effects */
+.glass {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+.glass-sidebar {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 4px 0 24px 0 rgba(31, 38, 135, 0.1);
+}
+
+.glass-header {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 16px 0 rgba(31, 38, 135, 0.08);
+}
+
+.glass-modal {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: all 0.3s ease;
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px 0 rgba(31, 38, 135, 0.15);
+}
+
+.dark .glass {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .glass-sidebar {
+  background: rgba(2, 6, 23, 0.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-header {
+  background: rgba(15, 23, 42, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .glass-modal {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-input {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .glass-button {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .glass-button:hover {
+  background: rgba(30, 41, 59, 0.7);
 }
