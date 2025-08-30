@@ -61,12 +61,12 @@ const Sidebar: React.FC<SidebarProps> = ({
         <div className="flex items-center space-x-2">
           <Image 
             src="/logo/logo.png" 
-            alt="Proacta Logo" 
+            alt="black Logo" 
             width={32} 
             height={32} 
             className="object-contain"
           />
-          <span className="text-xl font-bold glass-text-gradient">Proacta</span>
+          <span className="text-xl font-bold glass-text-gradient">black</span>
         </div>
         <Button 
           variant="ghost" 
