@@ -2,7 +2,7 @@
 
 A modern, component-based React application for managing employee absences and care plans.
 
-## Project Structure
+## Project Structure (demo)
 
 The application has been refactored into a modular, production-ready structure:
 
@@ -36,3 +36,6 @@ src/
     └── index.ts                    # Utility functions
 ```
 
+Project architechture (actual)
+
+<img width="975" height="858" alt="image" src="https://github.com/user-attachments/assets/09f584fc-4636-45aa-b717-8dd3e919aec1" />
