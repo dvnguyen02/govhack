@@ -36,6 +36,6 @@ src/
     └── index.ts                    # Utility functions
 ```
 
-Project architechture (actual)
+Project architechture (plan)
 
 <img width="975" height="858" alt="image" src="https://github.com/user-attachments/assets/09f584fc-4636-45aa-b717-8dd3e919aec1" />
